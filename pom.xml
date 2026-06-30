@@ -28,6 +28,10 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.projectKey>thearithsim_spring-maven</sonar.projectKey>
+		<sonar.projectName>Spring Boot Demo</sonar.projectName>
+		<sonar.organization>thearithsim</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,7 +58,23 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>4.0.0.4121</version>
+			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://localhost:8081/repository/spring-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://localhost:8081/repository/spring-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>
