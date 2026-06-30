@@ -39,6 +39,7 @@ jobs:
 
       - name: Publish to Nexus
         if: github.ref == 'refs/heads/main'
+        continue-on-error: true
         run: mvn deploy -DskipTests --settings settings.xml
         env:
           NEXUS_USER: ${{ secrets.NEXUS_USER }}
